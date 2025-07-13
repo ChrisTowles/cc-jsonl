@@ -1,22 +1,22 @@
-# モデルを改善する
+# Improve Models
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/requirements.md` に要件を定義した
-- `docs/schema.json` に想定されるチャットログのスキーマを記載した
-- モデル定義が不適切である
+- Added guidance to `CLAUDE.md`
+- Defined requirements in `docs/requirements.md`
+- Documented expected chat log schema in `docs/schema.json`
+- Model definitions are inappropriate
 
-## タスク
+## Task
 
-- モデル定義を改善する
-- モデル定義に合わせでデータベーススキーマを修正する
-- モデル定義に合わせてロジックを修正する
+- Improve model definitions
+- Modify database schema to match model definitions
+- Modify logic to match model definitions
 
-## 条件
+## Conditions
 
-- LogEntryBaseの `uuid` `parentUuid` `cwd` をメッセージのモデルに追加する
-    - `uuid` はユニークとし、重複した場合はupsertする
-- `cwd` をセッションモデルにも追加する
-    - 最新のメッセージの `cwd` をセッションの `cwd` とする
-- SummaryLogは無視して良い
+- Add LogEntryBase `uuid`, `parentUuid`, `cwd` to message model
+    - `uuid` should be unique, upsert if duplicated
+- Add `cwd` to session model as well
+    - Use the latest message's `cwd` as the session's `cwd`
+- SummaryLog can be ignored

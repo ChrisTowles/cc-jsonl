@@ -1,15 +1,15 @@
-# ロギングを実装する
+# Implement Logging
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/requirements.md` の要件を定義した
+- Added guidance to `CLAUDE.md`
+- Defined requirements in `docs/requirements.md`
 
-## タスク
+## Task
 
-- アプリケーションサービス内にコンソールへのロギング処理を追加する
+- Add console logging processing within application services
 
-## 条件
+## Conditions
 
-- コンソールへのロギングはアプリケーションサービス内で行う
-- `${any}Error` の `cause` プロパティも出力し、他のレイヤーの例外を追跡できるようにする
+- Console logging should be done within application services
+- Also output the `cause` property of `${any}Error` to track exceptions from other layers

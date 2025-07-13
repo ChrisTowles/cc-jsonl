@@ -1,14 +1,14 @@
-# 要件を定義する
+# Define Requirements
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/overview.md` に概要を記載した
+- Added guidance to `CLAUDE.md`
+- Documented overview in `docs/overview.md`
 
-## タスク
+## Task
 
-- 曖昧な概要を分析して、正確な機能要件を定義する
+- Analyze the vague overview and define precise functional requirements
 
-## 条件
+## Conditions
 
-- 対象ファイルは `docs/requirements.md`
+- Target file is `docs/requirements.md`

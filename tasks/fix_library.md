@@ -1,22 +1,22 @@
-# Claude Codeのライブラリを変更する
+# Change Claude Code Library
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/requirements.md` に要件を定義した
-- メッセージの送信に誤ったClaude CodeのSDKが使用されている
+- Added guidance to `CLAUDE.md`
+- Defined requirements in `docs/requirements.md`
+- Incorrect Claude Code SDK is being used for message sending
 
-## タスク
+## Task
 
-- `@anthropic-ai/sdk` を `@anthropic-ai/claude-code` に変更する
+- Change from `@anthropic-ai/sdk` to `@anthropic-ai/claude-code`
 
-## 条件
+## Conditions
 
-- 使用方法 <https://docs.anthropic.com/ja/docs/claude-code/sdk#typescript>
-- 必ずセッションモデルの `cwd` を指定してメッセージを送信する
-- 既存のセッションに送信する場合はセッションIDを指定する
+- Usage: <https://docs.anthropic.com/ja/docs/claude-code/sdk#typescript>
+- Always specify session model `cwd` when sending messages
+- Specify session ID when sending to existing session
 
-## セッションIDとcwdの指定方法
+## How to specify session ID and cwd
 
 ```ts
 query({

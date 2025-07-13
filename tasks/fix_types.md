@@ -1,15 +1,15 @@
-# 型を改善する
+# Improve Types
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/requirements.md` に要件を定義した
-- `src/core/domain/claude/types.ts` にclaudeドメインの型や型ガードを整備した
-    - `SDKMessage` : メッセージ送信時に返されるメッセージ
-    - `AssistantContent` `UserContent` : `SDKMessage` とログファイルに含まれ、メッセージリポジトリに保存される `content` の型
-- `src/core/domain/claude/ports/claudeService.ts` に `content` をパースする関数を追加した
+- Added guidance to `CLAUDE.md`
+- Defined requirements in `docs/requirements.md`
+- Organized claude domain types and type guards in `src/core/domain/claude/types.ts`
+    - `SDKMessage`: Message returned when sending messages
+    - `AssistantContent` `UserContent`: Type of `content` included in `SDKMessage` and log files, stored in message repository
+- Added function to parse `content` in `src/core/domain/claude/ports/claudeService.ts`
 
-## タスク
+## Task
 
-- 型を活用して、バックエンドのリファクタリングを行う
-- 型を活用して、フロントエンドのリファクタリングを行う
+- Refactor backend using types
+- Refactor frontend using types

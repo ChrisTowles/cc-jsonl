@@ -1,12 +1,12 @@
-# Watcherをリファクタリングする
+# Refactor Watcher
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/requirements.md` に要件を定義した
-- `src/watcher/` ディレクトリに監視・保存サービスを実装した
-- `src/watcher/` がヘキサゴナルアーキテクチャの設計から外れている
+- Added guidance to `CLAUDE.md`
+- Defined requirements in `docs/requirements.md`
+- Implemented monitoring and storage service in `src/watcher/` directory
+- `src/watcher/` deviates from hexagonal architecture design
 
-## タスク
+## Task
 
-- `src/watcher/` ディレクトリの処理を、アダプターを組み合わせたアプリケーションサービスとして実装する
+- Implement the processing in `src/watcher/` directory as an application service that combines adapters

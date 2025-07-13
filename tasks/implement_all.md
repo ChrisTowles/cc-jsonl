@@ -1,15 +1,15 @@
-# システムの実装を続ける
+# Continue System Implementation
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/requirements.md` に要件を定義した
-- `docs/schema.json` に想定されるチャットログのスキーマを記載した
-- `docs/usecase_web.tsv` にWebサービスで想定されるユースケースを記載した
-- `docs/usecase_daemon.tsv` にログ監視・保存サービスで想定されるユースケースを記載した
-- `docs/progress.md` に進捗を記録している
+- Added guidance to `CLAUDE.md`
+- Defined requirements in `docs/requirements.md`
+- Documented expected chat log schema in `docs/schema.json`
+- Documented expected use cases for web service in `docs/usecase_web.tsv`
+- Documented expected use cases for log monitoring and storage service in `docs/usecase_daemon.tsv`
+- Recording progress in `docs/progress.md`
 
-## タスク
+## Task
 
-- 設計に従ってシステムの実装を続ける
-- 実装後に型エラーとリンターエラーがあれば解消する
+- Continue system implementation following the design
+- Resolve type errors and linter errors after implementation

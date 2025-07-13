@@ -1,18 +1,18 @@
-# チャットUIを改善する
+# Improve Chat UI
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/requirements.md` に要件を定義した
-- `docs/schema.json` に想定されるチャットログのスキーマを記載した
-- `samples/` にチャットログのサンプルデータを作成した
-- `src/components/chat/ChatInterface.tsx` にチャットインターフェースのコンポーネントを実装した
-- `src/components/chat/MessageContent.tsx` にメッセージの内容を表示するコンポーネントを実装した
+- Added guidance to `CLAUDE.md`
+- Defined requirements in `docs/requirements.md`
+- Documented expected chat log schema in `docs/schema.json`
+- Created sample chat log data in `samples/`
+- Implemented chat interface component in `src/components/chat/ChatInterface.tsx`
+- Implemented message content display component in `src/components/chat/MessageContent.tsx`
 
-## タスク
+## Task
 
-- すべてのToolに対応する
-- メッセージの表示方法をより良くする
-    - ToolUseのBashなら、例えば `command` まで表示し、 `input` 全体を `<details>` に入れる
-    - ToolUseのReadなら、例えば `path` まで表示し、 `input` 全体を `<details>` に入れる
-    - その他も仕様に合わせて工夫する
+- Support all Tools
+- Improve message display methods
+    - For ToolUse Bash, display up to `command` and put the entire `input` in `<details>`
+    - For ToolUse Read, display up to `path` and put the entire `input` in `<details>`
+    - Be creative with other tools according to specifications

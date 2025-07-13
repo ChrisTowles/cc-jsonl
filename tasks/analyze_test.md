@@ -1,17 +1,17 @@
-# テスト結果を分析する
+# Analyze Test Results
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/requirements.md` に要件を定義した
-- `docs/usecases_*.tsv` に想定されるユースケースを定義した
+- Added guidance to `CLAUDE.md`
+- Defined requirements in `docs/requirements.md`
+- Defined expected use cases in `docs/usecases_*.tsv`
 
-## タスク
+## Task
 
-- テストを実行する
-- 実装に誤りがあれば修正する
+- Execute tests
+- Fix implementation errors if found
 
-## 条件
+## Conditions
 
-- テストを通すことを目的とした実装は行わない
-- テストに誤りがある場合は、作業を中断して報告する
+- Do not implement changes solely to make tests pass
+- If tests have errors, stop work and report the issue

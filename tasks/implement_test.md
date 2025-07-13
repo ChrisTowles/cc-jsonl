@@ -1,19 +1,19 @@
-# アプリケーションサービスのテストを実装する
+# Implement Application Service Tests
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/requirements.md` に要件を定義した
-- `docs/usecases_*.tsv` に想定されるユースケースを定義した
-- `docs/progress_test.md` にテスト実装の進捗を記録している
+- Added guidance to `CLAUDE.md`
+- Defined requirements in `docs/requirements.md`
+- Defined expected use cases in `docs/usecases_*.tsv`
+- Recording test implementation progress in `docs/progress_test.md`
 
-## タスク
+## Task
 
-- アプリケーションサービスのテストを実装する
+- Implement tests for application services
 
-## 条件
+## Conditions
 
-- 実装に合わせず、仕様に合わせたテストを作成する
-- 境界条件やエッジケースを考慮する
-- やむを得ずリンタールールに違反する場合は、直前の行に `// biome-ignore lint/${rule}: ${reason}` コメントを追加する
-- テストは実行しない
+- Create tests based on specifications, not implementation
+- Consider boundary conditions and edge cases
+- If lint rules must be violated, add `// biome-ignore lint/${rule}: ${reason}` comment on the preceding line
+- Do not execute tests

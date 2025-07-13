@@ -1,19 +1,19 @@
-# 進捗を更新する
+# Update Progress
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/requirements.md` に要件を定義した
-- `docs/usecases_*.tsv` にユースケースを定義した
-- `docs/progress.md` に進捗を記録している
+- Added guidance to `CLAUDE.md`
+- Defined requirements in `docs/requirements.md`
+- Defined use cases in `docs/usecases_*.tsv`
+- Recording progress in `docs/progress.md`
 
-## タスク
+## Task
 
-- 設計と実装を比較して、`docs/progress.md` を更新する
+- Compare design with implementation and update `docs/progress.md`
 
-## 備考
+## Notes
 
-- ファイルが存在しても、実装が完了していない場合がある
-- フロントエンドで実データを利用していない場合がある
-- レイヤー、ドメイン、ページ、コンポーネントごとに細かく調査する
-- このドキュメントの責任範囲を進捗の記録に限定する
+- Files may exist but implementation may not be complete
+- Frontend may not be using real data
+- Investigate thoroughly by layer, domain, page, and component
+- Limit the scope of this document to progress recording only

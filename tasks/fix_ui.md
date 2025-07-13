@@ -1,16 +1,16 @@
-# UIの改善
+# UI Improvements
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- UIの改善が必要
+- Added guidance to `CLAUDE.md`
+- UI improvements are needed
 
-## タスク
+## Task
 
-- 全体について、より良いレイアウトを検討して適用する
-- 特にセッション詳細ページでは、チャットが画面全体に表示されるようにする
-- date-fnsで日時をフォーマットして表示する
+- Consider and apply better layouts overall
+- Especially on session detail pages, make chat display full screen
+- Format and display dates using date-fns
 
-## 条件
+## Conditions
 
-- モバイルファーストで考える
+- Think mobile-first

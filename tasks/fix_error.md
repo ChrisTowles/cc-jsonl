@@ -1,8 +1,8 @@
-# エラーの修正
+# Fix Errors
 
-## タスク
+## Task
 
-- エラーを修正する
+- Fix errors
 
 ## エラー
 

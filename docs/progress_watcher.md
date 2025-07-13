@@ -1,160 +1,160 @@
-# 監視・保存サービス実装の進捗
+# Watcher Service Implementation Progress
 
-## 概要
+## Overview
 
-Claude Code のログファイルを監視し、解析・保存するサービスの実装進捗を記録する。
+Records implementation progress for the service that monitors, analyzes, and saves Claude Code log files.
 
-## アーキテクチャ
+## Architecture
 
-ヘキサゴナルアーキテクチャを採用し、以下の層で構成：
+Uses hexagonal architecture with the following layers:
 
-- **Domain Layer**: ビジネスロジック、型定義、ポートインターフェース
-- **Adapter Layer**: 外部サービスの具体的実装
-- **Application Layer**: ユースケースとアプリケーションサービス
+- **Domain Layer**: Business logic, type definitions, port interfaces
+- **Adapter Layer**: Concrete implementations of external services
+- **Application Layer**: Use cases and application services
 
-## 実装状況
+## Implementation Status
 
 ### Domain Layer (`src/core/domain/watcher/`)
 
-#### 型定義 (`types.ts`) ✅ 完了
-- Claude ログエントリのスキーマ定義
+#### Type Definitions (`types.ts`) ✅ Complete
+- Claude log entry schema definitions
   - `SummaryLog`, `UserLog`, `AssistantLog`, `SystemLog`
-  - `ClaudeLogEntry` ユニオン型
-- ファイル変更イベント (`FileChangeEvent`)
-- 監視設定 (`WatcherConfig`)
-- 解析済みログファイル (`ParsedLogFile`)
+  - `ClaudeLogEntry` union type
+- File change events (`FileChangeEvent`)
+- Watcher configuration (`WatcherConfig`)
+- Parsed log file (`ParsedLogFile`)
 
-#### Port Interfaces ✅ 完了
+#### Port Interfaces ✅ Complete
 
 **FileWatcher Port** (`ports/fileWatcher.ts`)
-- `FileWatcher` インターフェース
-- `start()`, `stop()`, `isWatching()` メソッド
-- `FileChangeHandler` 型定義
-- `FileWatcherError` エラー型
+- `FileWatcher` interface
+- `start()`, `stop()`, `isWatching()` methods
+- `FileChangeHandler` type definition
+- `FileWatcherError` error type
 
 **FileReader Port** (`ports/fileReader.ts`)
-- `FileReader` インターフェース
-- `readFile()`, `fileExists()` メソッド
-- `FileReaderError` エラー型
+- `FileReader` interface
+- `readFile()`, `fileExists()` methods
+- `FileReaderError` error type
 
 **LogParser Port** (`ports/logParser.ts`)
-- `LogParser` インターフェース
-- `parseFile()`, `parseJsonLines()` メソッド
-- `extractProjectName()`, `extractSessionId()` メソッド
-- `LogParserError` エラー型
+- `LogParser` interface
+- `parseFile()`, `parseJsonLines()` methods
+- `extractProjectName()`, `extractSessionId()` methods
+- `LogParserError` error type
 
 ### Adapter Layer (`src/core/adapters/`)
 
-#### Chokidar File Watcher ✅ 完了
-**実装**: `chokidar/fileWatcher.ts`
-- `ChokidarFileWatcher` クラス
-- chokidar ライブラリを使用した実装
-- ファイル変更イベントの監視 (add, change, unlink)
-- 書き込み完了待機機能
-- エラーハンドリング
+#### Chokidar File Watcher ✅ Complete
+**Implementation**: `chokidar/fileWatcher.ts`
+- `ChokidarFileWatcher` class
+- Implementation using chokidar library
+- File change event monitoring (add, change, unlink)
+- Write completion waiting functionality
+- Error handling
 
-#### Node.js File Reader ✅ 完了
-**実装**: `nodeFs/fileReader.ts`
-- `NodeFsFileReader` クラス
-- Node.js fs/promises を使用した実装
-- ファイル読み込み・存在確認
-- エラーハンドリング
+#### Node.js File Reader ✅ Complete
+**Implementation**: `nodeFs/fileReader.ts`
+- `NodeFsFileReader` class
+- Implementation using Node.js fs/promises
+- File reading and existence checking
+- Error handling
 
-#### Claude Log Parser ✅ 完了
-**実装**: `claudeLog/logParser.ts`
-- `ClaudeLogParser` クラス
-- JSONL ファイルの解析
-- プロジェクト名・セッション ID の抽出
-- Zod スキーマ検証
-- エラーハンドリング
+#### Claude Log Parser ✅ Complete
+**Implementation**: `claudeLog/logParser.ts`
+- `ClaudeLogParser` class
+- JSONL file parsing
+- Project name and session ID extraction
+- Zod schema validation
+- Error handling
 
 ### Application Layer (`src/core/application/watcher/`)
 
-#### Process Log File Service ✅ 完了
-**実装**: `processLogFile.ts`
-- ログファイル解析・保存のメイン処理
-- プロジェクト自動作成機能
-- セッション自動作成機能
-- メッセージ・システムログの保存
-- セッション CWD の更新
-- 包括的エラーハンドリング
+#### Process Log File Service ✅ Complete
+**Implementation**: `processLogFile.ts`
+- Main processing for log file analysis and saving
+- Automatic project creation functionality
+- Automatic session creation functionality
+- Message and system log saving
+- Session CWD updates
+- Comprehensive error handling
 
-#### Start Watcher Service ✅ 完了
-**実装**: `startWatcher.ts`
-- ファイル監視の開始・停止
-- イベントハンドラでのログ処理
-- 設定検証
-- エラーハンドリング
+#### Start Watcher Service ✅ Complete
+**Implementation**: `startWatcher.ts`
+- File monitoring start/stop
+- Log processing in event handlers
+- Configuration validation
+- Error handling
 
-#### Index Export ✅ 完了
-**実装**: `index.ts`
-- 公開 API の定義
-- 型エクスポート
+#### Index Export ✅ Complete
+**Implementation**: `index.ts`
+- Public API definition
+- Type exports
 
-### テスト
+### Tests
 
-#### Application Layer Tests ✅ 完了
-- `processLogFile.test.ts`: ログファイル処理のテスト
-- `startWatcher.test.ts`: ファイル監視開始のテスト
+#### Application Layer Tests ✅ Complete
+- `processLogFile.test.ts`: Log file processing tests
+- `startWatcher.test.ts`: File monitoring start tests
 
-#### Mock Adapters ✅ 完了
-- `mock/fileWatcher.ts`: テスト用モックファイル監視
-- `mock/fileReader.ts`: テスト用モックファイル読み込み
-- `mock/logParser.ts`: テスト用モックログ解析
+#### Mock Adapters ✅ Complete
+- `mock/fileWatcher.ts`: Mock file watcher for testing
+- `mock/fileReader.ts`: Mock file reader for testing
+- `mock/logParser.ts`: Mock log parser for testing
 
-## 実装済み機能
+## Implemented Features
 
-### 監視機能
-- ✅ ファイル変更の監視 (add, change, unlink)
-- ✅ JSONL ファイルパターンマッチング
-- ✅ 書き込み完了待機
-- ✅ 監視の開始・停止
+### Monitoring Features
+- ✅ File change monitoring (add, change, unlink)
+- ✅ JSONL file pattern matching
+- ✅ Write completion waiting
+- ✅ Monitoring start/stop
 
-### ログ解析機能
-- ✅ JSONL ファイルの解析
-- ✅ Claude ログエントリの検証
-- ✅ プロジェクト名の自動抽出
-- ✅ セッション ID の自動抽出
-- ✅ 無効なエントリのスキップ
+### Log Analysis Features
+- ✅ JSONL file parsing
+- ✅ Claude log entry validation
+- ✅ Automatic project name extraction
+- ✅ Automatic session ID extraction
+- ✅ Invalid entry skipping
 
-### データ保存機能
-- ✅ プロジェクトの自動作成
-- ✅ セッションの自動作成
-- ✅ メッセージの保存（ユーザー・アシスタント）
-- ✅ システムログの保存
-- ✅ セッション CWD の更新
-- ✅ 重複メッセージの upsert 処理
+### Data Storage Features
+- ✅ Automatic project creation
+- ✅ Automatic session creation
+- ✅ Message saving (user and assistant)
+- ✅ System log saving
+- ✅ Session CWD updates
+- ✅ Duplicate message upsert processing
 
-### エラーハンドリング
-- ✅ 各層での Result 型を使用したエラー処理
-- ✅ 包括的なエラーメッセージとログ出力
-- ✅ 部分的失敗に対する resilient な処理
+### Error Handling
+- ✅ Result type error handling in all layers
+- ✅ Comprehensive error messages and logging
+- ✅ Resilient processing for partial failures
 
-## 依存関係
+## Dependencies
 
-### 外部ライブラリ
-- `chokidar`: ファイル監視
-- `neverthrow`: Result 型によるエラーハンドリング
-- `zod`: スキーマ検証
+### External Libraries
+- `chokidar`: File monitoring
+- `neverthrow`: Result type error handling
+- `zod`: Schema validation
 
-### 内部依存
-- Project Repository: プロジェクト管理
-- Session Repository: セッション管理  
-- Message Repository: メッセージ保存
+### Internal Dependencies
+- Project Repository: Project management
+- Session Repository: Session management  
+- Message Repository: Message storage
 
-## 状態
+## Status
 
-**実装完了度**: 100%
+**Implementation Completion**: 100%
 
-すべての必要な機能が実装され、テストも完備されています。監視・保存サービスは本格的な利用が可能な状態です。
+All necessary features have been implemented and tests are complete. The watcher service is ready for production use.
 
-## 次のステップ（他のドメインとの統合）
+## Next Steps (Integration with Other Domains)
 
-1. フロントエンドでの監視状態表示
-2. 監視設定の UI 管理
-3. リアルタイムでの進捗表示
-4. 統合テストの追加
+1. Monitor status display in frontend
+2. UI management for monitoring configuration
+3. Real-time progress display
+4. Integration test additions
 
 ---
 
-**最終更新**: 2025-06-21
+**Last Updated**: 2025-06-21

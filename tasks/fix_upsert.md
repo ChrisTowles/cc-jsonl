@@ -1,12 +1,12 @@
-# upsert処理を改善する
+# Improve Upsert Processing
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `src/core/adapters/` ディレクトリに、複数のリポジトリアダプターが存在する
-- Drizzleには `onConflictDoUpdate` メソッドが存在する
+- Added guidance to `CLAUDE.md`
+- Multiple repository adapters exist in `src/core/adapters/` directory
+- Drizzle has `onConflictDoUpdate` method
 
-## タスク
+## Task
 
-- 同じログファイルを重複して処理する場合があるため、 `create` メソッドで `onConflictDoUpdate` を使用してupsert処理を行う
-- `upsert` メソッドは不要になるので、削除する
+- Since the same log file may be processed duplicately, use `onConflictDoUpdate` in `create` method for upsert processing
+- Remove `upsert` method as it becomes unnecessary

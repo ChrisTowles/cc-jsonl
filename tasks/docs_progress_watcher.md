@@ -1,18 +1,18 @@
-# 監視・保存サービス実装の進捗を更新する
+# Update Watcher Service Implementation Progress
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/requirements.md` に要件を定義した
-- `docs/usecases_*.tsv` にユースケースを定義した
-- `docs/progress_watcher.md` にバックエンド実装の進捗を記録している
+- Added guidance to `CLAUDE.md`
+- Defined requirements in `docs/requirements.md`
+- Defined use cases in `docs/usecases_*.tsv`
+- Recording backend implementation progress in `docs/progress_watcher.md`
 
-## タスク
+## Task
 
-- 設計と実装を比較して、`docs/progress_watcher.md` を更新する
+- Compare design with implementation and update `docs/progress_watcher.md`
 
-## 備考
+## Notes
 
-- ファイルが存在しても、実装が完了していない場合がある
-- レイヤー、ドメインごとに細かく調査する
-- このドキュメントの責任範囲を「監視・保存サービス実装の進捗の記録」に限定する
+- Files may exist but implementation may not be complete
+- Investigate thoroughly by layer and domain
+- Limit the scope of this document to "recording watcher service implementation progress" only

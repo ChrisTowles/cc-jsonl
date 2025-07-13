@@ -1,18 +1,18 @@
-# テスト実装の進捗を更新する
+# Update Test Implementation Progress
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/requirements.md` に要件を定義した
-- `docs/usecases_*.tsv` にユースケースを定義した
-- `docs/progress_test.md` に進捗を記録している
+- Added guidance to `CLAUDE.md`
+- Defined requirements in `docs/requirements.md`
+- Defined use cases in `docs/usecases_*.tsv`
+- Recording progress in `docs/progress_test.md`
 
-## タスク
+## Task
 
-- 設計と実装を比較して、`docs/progress_test.md` を更新する
+- Compare design with implementation and update `docs/progress_test.md`
 
-## 備考
+## Notes
 
-- 実装に合わせたテストではなく、仕様を表現するテストであることを確認する
-- ドキュメントの責任範囲を「テスト実装の進捗の記録」に制限する
-- テストは実行しない
+- Verify that tests express specifications rather than matching implementation
+- Limit the scope of this document to "recording test implementation progress"
+- Do not execute tests

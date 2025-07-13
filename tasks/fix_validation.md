@@ -1,12 +1,12 @@
-# バリデーションを改善する
+# Improve Validation
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/validation.md` にバリデーションの例を記載した
-- 現在の実装はバリデーションが不十分である
+- Added guidance to `CLAUDE.md`
+- Documented validation examples in `docs/validation.md`
+- Current implementation has insufficient validation
 
-## タスク
+## Task
 
-- 例に従ってServer Actionsを修正する
-- 例に従ってフォームコンポーネントを修正する
+- Fix Server Actions following the examples
+- Fix form components following the examples
