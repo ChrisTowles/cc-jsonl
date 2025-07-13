@@ -1,100 +1,100 @@
-# 機能要件定義書
+# Functional Requirements Document
 
-## 1. システム概要
+## 1. System Overview
 
-Claude Codeのチャットログを監視・保存し、Webインターフェースで表示・操作するシステム。2つの独立したサービスで構成される。
+A system that monitors and saves Claude Code chat logs, displaying and operating them through a web interface. It consists of two independent services.
 
-## 2. システム構成
+## 2. System Architecture
 
-### 2.1 サービス構成
+### 2.1 Service Components
 
-1. **チャットログ監視サービス** - ファイル監視とデータベース保存
-2. **Webアプリケーションサービス** - データ表示とClaude Code SDK連携
+1. **Chat Log Monitoring Service** - File monitoring and database storage
+2. **Web Application Service** - Data display and Claude Code SDK integration
 
-### 2.2 基本要件
+### 2.2 Basic Requirements
 
-- **サービス分離**: 監視サービスとWebアプリケーションサービスを独立して起動可能
-- **UI設計**: モバイルファーストデザイン
+- **Service Separation**: Monitoring service and web application service can be started independently
+- **UI Design**: Mobile-first design
 
-## 3. 機能要件
+## 3. Functional Requirements
 
-### 3.1 チャットログ監視サービス
+### 3.1 Chat Log Monitoring Service
 
-#### 3.1.1 ファイル監視機能
+#### 3.1.1 File Monitoring Function
 
-- **対象ファイルパターン**: `${target}/${projectName}/${sessionId}.jsonl`
-- **監視対象**: Claude Codeのチャットログファイル（JSON Lines形式）
-- **監視方式**: リアルタイムファイル監視
-- **処理内容**: 新規ファイル作成・更新の検知
+- **Target File Pattern**: `${target}/${projectName}/${sessionId}.jsonl`
+- **Monitoring Target**: Claude Code chat log files (JSON Lines format)
+- **Monitoring Method**: Real-time file monitoring
+- **Processing Content**: Detection of new file creation and updates
 
-#### 3.1.2 データ保存機能
+#### 3.1.2 Data Storage Function
 
-- **保存データ**: プロジェクト情報、セッション情報、チャットログ
-- **データ構造**:
-    - プロジェクト（Project）
-    - セッション（Session）
-    - メッセージ（Message）
-- **メッセージ形式対応**: パースできない形式のメッセージも保存できること
-- **Tool対応**: 未知のToolでもパースできること
+- **Stored Data**: Project information, session information, chat logs
+- **Data Structure**:
+    - Project
+    - Session
+    - Message
+- **Message Format Support**: Ability to save messages in unparseable formats
+- **Tool Support**: Ability to parse unknown Tools without errors
 
-### 3.2 Webアプリケーションサービス
+### 3.2 Web Application Service
 
-#### 3.2.1 プロジェクト管理機能
+#### 3.2.1 Project Management Function
 
-- **プロジェクト一覧表示**: 監視対象プロジェクトの一覧
-- **プロジェクト選択**: 特定プロジェクトの選択・表示
-- **プロジェクト情報表示**: プロジェクト名、セッション数等の基本情報
+- **Project List Display**: List of monitored projects
+- **Project Selection**: Selection and display of specific projects
+- **Project Information Display**: Basic information such as project name, session count, etc.
 
-#### 3.2.2 セッション管理機能
+#### 3.2.2 Session Management Function
 
-- **セッション一覧表示**: 選択プロジェクト内のセッション一覧
-- **セッション選択**: 特定セッションの選択・表示
-- **セッション情報表示**: セッションID、メッセージ数、最終更新日時等
+- **Session List Display**: List of sessions within selected project
+- **Session Selection**: Selection and display of specific sessions
+- **Session Information Display**: Session ID, message count, last update time, etc.
 
-#### 3.2.3 チャットルーム機能
+#### 3.2.3 Chat Room Function
 
-- **チャット履歴表示**: 選択セッションのメッセージ履歴
-- **リアルタイム表示**: 保存済みデータと新規メッセージの統合表示
-- **メッセージ形式**: ユーザー・アシスタントメッセージの区別表示
-- **タイムスタンプ表示**: メッセージの送信時刻表示
+- **Chat History Display**: Message history of selected session
+- **Real-time Display**: Integrated display of saved data and new messages
+- **Message Format**: Distinguishable display of user and assistant messages
+- **Timestamp Display**: Display of message send time
 
-#### 3.2.4 Claude Code SDK連携機能
+#### 3.2.4 Claude Code SDK Integration Function
 
-##### 3.2.4.1 既存セッション連携
+##### 3.2.4.1 Existing Session Integration
 
-- **セッション指定送信**: 特定のセッションIDに対するメッセージ送信
-- **コンテキスト維持**: 既存セッションのコンテキストを保持した会話継続
+- **Session-Specific Sending**: Message sending to specific session ID
+- **Context Preservation**: Conversation continuation maintaining existing session context
 
-##### 3.2.4.2 新規セッション作成
+##### 3.2.4.2 New Session Creation
 
-- **ディレクトリ指定**: 実行ディレクトリを指定した新規セッション作成
-- **セッションID未指定**: セッションIDなしでの新規セッション開始
+- **Directory Specification**: New session creation with specified execution directory
+- **No Session ID Specified**: Starting new session without session ID
 
-#### 3.2.5 リアルタイム通信機能
+#### 3.2.5 Real-time Communication Function
 
-- **ストリーミング処理**: Claude Code SDKからのストリーミングレスポンス処理
-- **データ統合**: 保存済みデータとリアルタイムレスポンスの破綻のない統合表示
-- **状態管理**: 送信中・受信中・完了状態の適切な管理
+- **Streaming Processing**: Processing streaming responses from Claude Code SDK
+- **Data Integration**: Seamless integration display of saved data and real-time responses
+- **State Management**: Proper management of sending, receiving, and completion states
 
-#### 3.2.6 ユーザーインターフェース機能
+#### 3.2.6 User Interface Function
 
-- **モバイルファースト**: スマートフォン・タブレット対応の responsive デザイン
-- **ナビゲーション**: プロジェクト → セッション → チャットルームの階層ナビゲーション
-- **リアルタイム更新**: 新規メッセージの自動表示更新
+- **Mobile-First**: Responsive design for smartphones and tablets
+- **Navigation**: Hierarchical navigation: Project → Session → Chat Room
+- **Real-time Updates**: Automatic display updates for new messages
 
-## 4. データフロー
+## 4. Data Flow
 
-### 4.1 監視サービス
+### 4.1 Monitoring Service
 
-1. ファイルシステム監視
-2. 変更検知
-3. ファイル内容解析
-4. データベース保存
+1. File system monitoring
+2. Change detection
+3. File content analysis
+4. Database storage
 
-### 4.2 Webアプリケーション
+### 4.2 Web Application
 
-1. データベースからデータ取得
-2. UI表示
-3. ユーザー操作（メッセージ送信）
-4. Claude Code SDK経由でメッセージ送信
-5. リアルタイムレスポンス受信・表示
+1. Data retrieval from database
+2. UI display
+3. User operations (message sending)
+4. Message sending via Claude Code SDK
+5. Real-time response reception and display

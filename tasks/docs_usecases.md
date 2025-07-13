@@ -1,27 +1,27 @@
-# ユースケースを定義する
+# Define Use Cases
 
-## 背景
+## Background
 
-- `CLAUDE.md` にガイダンスを記載した
-- `docs/requirements.md` に要件を定義した
-- `docs/schema.json` に想定されるチャットログのスキーマを記載した
+- Guidance has been documented in `CLAUDE.md`
+- Requirements have been defined in `docs/requirements.md`
+- Expected chat log schema has been documented in `docs/schema.json`
 
-## タスク
+## Task
 
-- 要件定義を満たすために必要なユースケースを列挙する
+- Enumerate the use cases necessary to satisfy the requirements definition
 
-## 条件
+## Conditions
 
-- 対象ファイル
+- Target files
     - `docs/usecases_web.tsv`
     - `docs/usecases_daemon.tsv`
-- TSV形式で記述する
-- `docs/usecase_web.tsv` のカラム
-    - 対象パス（共通レイアウト内の場合はワイルドカードを使う）
-    - ユースケース名
-    - 説明
-- `docs/usecase_daemon.tsv` のカラム
-    - ユースケース名
-    - 説明
-- 対象パス、ユースケース名は重複しても良い
-- [対象パス, ユースケース名] の組み合わせは一意であること
+- Write in TSV format
+- `docs/usecase_web.tsv` columns
+    - Target path (use wildcards for common layout cases)
+    - Use case name
+    - Description
+- `docs/usecase_daemon.tsv` columns
+    - Use case name
+    - Description
+- Target path and use case name may be duplicated
+- The combination of [target path, use case name] must be unique
