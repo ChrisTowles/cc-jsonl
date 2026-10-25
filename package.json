@@ -39,7 +39,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@anthropic-ai/claude-code": "^1.0.31",
+    "@anthropic-ai/claude-code": "^2.1.179",
     "@anthropic-ai/sdk": "^0.55.0",
     "@electric-sql/pglite": "^0.3.3",
     "@hookform/resolvers": "^5.1.1",
